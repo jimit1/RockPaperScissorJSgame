@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <script>
+      var arr1 = ["r", "p", "s"];
+
+      var wins = 0;
+      var loses = 0;
+      var ties = 0;
+
+      for (var i = 0; i < 10; i++) {
+        var userGuess = prompt("Enter r, p or s as your choice?");
+        var rand = Math.floor(Math.random() * arr1.length);
+        var computerGuess = arr1[rand];
+        if (userGuess !== "r" && userGuess !== "p" && userGuess !== "s") {
+          alert("That's a wrong input");
+          i--;
+        } else if (userGuess === computerGuess) {
+          ties++;
+          alert(
+            "It's a tie. Both of you picked " +
+              userGuess +
+              " \nTotal wins: " +
+              wins +
+              "\nTotal loses: " +
+              loses +
+              "\nTotal ties: " +
+              ties
+          );
+          console.log(
+            "Game " +
+              (i + 1) +
+              " It's a tie. Both of you picked " +
+              userGuess +
+              " Total wins: " +
+              wins +
+              " Total loses: " +
+              loses +
+              " Total ties: " +
+              ties
+          );
+        } else if (
+          (userGuess === "r" && computerGuess === "s") ||
+          (userGuess === "p" && computerGuess === "r") ||
+          (userGuess === "s" && computerGuess === "p")
+        ) {
+          wins++;
+          alert(
+            "You win. You picked " +
+              userGuess +
+              " Computer picked " +
+              computerGuess +
+              " \nTotal wins: " +
+              wins +
+              "\nTotal loses: " +
+              loses +
+              "\nTotal ties: " +
+              ties
+          );
+          console.log(
+            "Game " +
+              (i + 1) +
+              " You win. You picked " +
+              userGuess +
+              " Computer picked " +
+              computerGuess +
+              " Total wins: " +
+              wins +
+              " Total loses: " +
+              loses +
+              " Total ties: " +
+              ties
+          );
+        } else {
+          loses++;
+          alert(
+            "You lose. You picked " +
+              userGuess +
+              " Computer picked " +
+              computerGuess +
+              " \nTotal wins: " +
+              wins +
+              "\nTotal loses: " +
+              loses +
+              "\nTotal ties: " +
+              ties
+          );
+          console.log(
+            "Game " +
+              (i + 1) +
+              " You lose. You picked " +
+              userGuess +
+              " Computer picked " +
+              computerGuess +
+              " Total wins: " +
+              wins +
+              " Total loses: " +
+              loses +
+              " Total ties: " +
+              ties
+          );
+        }
+      }
+
+      console.log(
+        "Final tally. Total games played: " +
+          i +
+          " Total wins: " +
+          wins +
+          " Total loses: " +
+          loses +
+          " Total ties: " +
+          ties
+      );
+    </script>
+  </body>
+</html>
